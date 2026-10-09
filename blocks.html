@@ -32,7 +32,10 @@
   .why h2{font:800 46px/1.1 Montserrat;margin:12px 0 0;max-width:960px}
   .why .lead{font-size:18px;color:#cfe3fb;max-width:640px;margin-top:16px}
 
-  .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:48px;position:relative}
+  .why-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:48px;position:relative}
+  .why-grid .card{grid-column:span 2}
+  .why-grid .card:nth-child(n+4){grid-column:span 3}
+  .card .ic svg{width:30px;height:30px;color:var(--blue)}
   .card{background:#fff;color:var(--ink);border-radius:20px;padding:28px 24px 26px;display:flex;flex-direction:column;
     box-shadow:0 14px 40px rgba(2,24,48,.25);transition:transform .2s}
   .card:hover{transform:translateY(-4px)}
@@ -95,6 +98,8 @@
   /* планшет */
   @media (max-width:1100px){
     .why-grid{grid-template-columns:repeat(2,1fr)}
+    .why-grid .card,.why-grid .card:nth-child(n+4){grid-column:span 1}
+    .why-grid .card:last-child{grid-column:span 2}
     .brands{grid-template-columns:repeat(4,1fr)}
     .hdr nav{display:none}
   }
@@ -114,6 +119,8 @@
     .why h2{font-size:28px}
     .why .lead{font-size:15px}
     .why-grid{grid-template-columns:1fr;gap:12px;margin-top:28px}
+    .why-grid .card,.why-grid .card:nth-child(n+4),.why-grid .card:last-child{grid-column:auto}
+    .card .ic svg{width:24px;height:24px}
     .card{display:grid;grid-template-columns:48px 1fr;column-gap:14px;padding:18px 16px;border-radius:16px}
     .card .ic{width:48px;height:48px;border-radius:14px;grid-row:span 3}
     .card .ic img{width:26px;height:26px}
@@ -182,6 +189,12 @@
         <h3>Работаем с гарантией</h3>
         <p>Все условия на бумаге, а за результат отвечаем гарантией</p>
       </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg></div>
+        <div class="big">АСЦ</div>
+        <h3>Авторизованный сервисный центр</h3>
+        <p>Мастера обучены производителем</p>
+      </div>
     </div>
 
     <div class="promise">
@@ -207,7 +220,7 @@
       <div>
         <span class="badge">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.4 8.7-8 10-4.6-1.3-8-5-8-10V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
-          Обучены производителем
+          Наши партнёры
         </span>
         <h2>Авторизованный <em>сервисный центр</em> торговых марок</h2>
       </div>

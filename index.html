@@ -27,15 +27,20 @@
     <button data-w="820px">Планшет</button>
     <button data-w="390px">Телефон</button>
   </div>
+  <div class="tabs" id="ver">
+    <button data-src="was.html">Было</button>
+    <button data-src="blocks.html" class="on">Стало</button>
+  </div>
   <a href="blocks.html" target="_blank">Открыть отдельно</a>
 </div>
 <div class="stage"><iframe id="f" src="blocks.html" style="width:100%"></iframe></div>
 <script>
   const f=document.getElementById('f');
-  const set=w=>{f.style.width=w;document.querySelectorAll('.tabs button').forEach(b=>b.classList.toggle('on',b.dataset.w===w))};
-  document.querySelectorAll('.tabs button').forEach(b=>b.onclick=()=>{set(b.dataset.w);location.hash=b.textContent.trim()});
+  const set=w=>{f.style.width=w;document.querySelectorAll('.tabs:not(#ver) button').forEach(b=>b.classList.toggle('on',b.dataset.w===w))};
+  document.querySelectorAll('.tabs:not(#ver) button').forEach(b=>b.onclick=()=>{set(b.dataset.w);location.hash=b.textContent.trim()});
+  document.querySelectorAll('#ver button').forEach(b=>b.onclick=()=>{f.src=b.dataset.src;document.querySelectorAll('#ver button').forEach(x=>x.classList.toggle('on',x===b))});
   const h=decodeURIComponent(location.hash.slice(1));
-  document.querySelectorAll('.tabs button').forEach(b=>{if(b.textContent.trim()===h)set(b.dataset.w)});
+  document.querySelectorAll('.tabs:not(#ver) button').forEach(b=>{if(b.textContent.trim()===h)set(b.dataset.w)});
 </script>
 </body>
 </html>
